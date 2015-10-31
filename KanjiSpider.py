@@ -148,6 +148,15 @@ url that is going to be visited.After being visited the value of the root
 attribute is changed to 0.count is used to set limit of the crawler
 i.e. how many links will be stored n the database.
     '''
+    
+    try:
+        f = open("Crawled.txt",'a+')
+        f.write(unicode(url) + "\n")
+        f.seek(0)
+        f.close()
+    except:
+        print "Could not print to file"
+    
     try:
         cursor.execute("select count(*) from data;")
         count=cursor.fetchone()
